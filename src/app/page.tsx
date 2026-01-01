@@ -1,3 +1,3 @@
 const Page = () => {
-  return <div></div>
+  return (<div></div>)
 }
