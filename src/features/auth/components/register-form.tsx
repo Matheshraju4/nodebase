@@ -10,6 +10,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import Image from "next/image";
 
 const registerSchema = z.object({
     email: z.email("Enter valid Email"),
@@ -77,10 +78,10 @@ export function RegisterForm() {
                                 <div className="flex flex-col gap-4">
 
                                     <Button variant={"outline"} className="w-full " type="button" disabled={isPending}>
-                                        Continue with Github
+                                        <Image src="/logos/github.svg" alt="Github" width={20} height={20} />      Continue with Github
                                     </Button>
                                     <Button variant={"outline"} className="w-full " type="button" disabled={isPending}>
-                                        Continue with Google
+                                        <Image src="/logos/google.svg" alt="Github" width={20} height={20} />    Continue with Google
                                     </Button>
                                 </div>
                                 <div className="grid gap-6">
