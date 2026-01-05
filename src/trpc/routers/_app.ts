@@ -5,8 +5,15 @@ import { Inngest } from "inngest";
 import { inngest } from "@/inngest/client";
 import { google } from "@ai-sdk/google";
 import { generateText } from "ai";
+
+import * as Sentry from "@sentry/nextjs";
 export const appRouter = createTRPCRouter({
   testAi: protectedProcedure.mutation(async () => {
+    Sentry.logger.info("User triggered test log", {
+      log_source: "sentry_test",
+    });
+
+    console.warn("This is Log by me");
     await inngest.send({
       name: "execute/ai",
     });
