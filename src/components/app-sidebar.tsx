@@ -16,6 +16,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import { useHasActiveSubscription } from "@/features/subscriptions/hooks/use-subcription";
 
 
 const menuItems = [
@@ -44,6 +45,8 @@ const AppSidebar = () => {
 
     const pathName = usePathname()
     const router = useRouter()
+
+    const { hasActiveSubscription, isLoading } = useHasActiveSubscription()
     return (
         <Sidebar collapsible="icon">
             <SidebarHeader>
@@ -89,15 +92,17 @@ const AppSidebar = () => {
 
             <SidebarFooter>
                 <SidebarMenu>
+                    {
+                        !hasActiveSubscription && !isLoading && (<SidebarMenuItem>
+                            <SidebarMenuButton tooltip="Upgrade to Pro" className="gap-x-4 h-10 px-4" onClick={() => { authClient.checkout({ slug: "Nodebase-Pro" }) }}>
+                                <StarIcon className="h-4 w-4" />
+                                <span>Upgrade to Pro</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>)
+                    }
 
                     <SidebarMenuItem>
-                        <SidebarMenuButton tooltip="Upgrade to Pro" className="gap-x-4 h-10 px-4" onClick={() => { }}>
-                            <StarIcon className="h-4 w-4" />
-                            <span>Upgrade to Pro</span>
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton tooltip="Upgrade to Pro" className="gap-x-4 h-10 px-4" onClick={() => { }}>
+                        <SidebarMenuButton tooltip="Upgrade to Pro" className="gap-x-4 h-10 px-4" onClick={() => authClient.customer.portal()}>
                             <CreditCardIcon className="h-4 w-4" />
                             <span>Billing Portal</span>
                         </SidebarMenuButton>
