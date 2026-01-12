@@ -1,37 +1,38 @@
-import { WorkflowsContainer, WorkflowsList } from "@/features/workflows/components/workflows"
-import { workflowsParamsLoader } from "@/features/workflows/server/params-loader"
-import { prefetchWorkflows } from "@/features/workflows/server/prefetch"
-import { requireAuth } from "@/lib/auth-utils"
-import { HydrateClient } from "@/trpc/server"
-import { SearchParams } from "nuqs"
-import { Suspense } from "react"
-import { ErrorBoundary } from "react-error-boundary"
-
-
+import type { SearchParams } from "nuqs";
+import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import {
+  WorkflowsContainer,
+  WorkflowsError,
+  WorkflowsList,
+  WorkflowsLoading,
+} from "@/features/workflows/components/workflows";
+import { workflowsParamsLoader } from "@/features/workflows/server/params-loader";
+import { prefetchWorkflows } from "@/features/workflows/server/prefetch";
+import { requireAuth } from "@/lib/auth-utils";
+import { HydrateClient } from "@/trpc/server";
 
 type Props = {
-    searchParams: Promise<SearchParams>;
-}
+  searchParams: Promise<SearchParams>;
+};
 const Page = async ({ searchParams }: Props) => {
+  await requireAuth();
 
-    await requireAuth()
+  const params = await workflowsParamsLoader(searchParams);
 
-    const params = await workflowsParamsLoader(searchParams)
-    prefetchWorkflows(params)
+  prefetchWorkflows(params);
 
-    return (
+  return (
+    <WorkflowsContainer>
+      <HydrateClient>
+        <ErrorBoundary fallback={<WorkflowsError />}>
+          <Suspense fallback={<WorkflowsLoading />}>
+            <WorkflowsList />
+          </Suspense>
+        </ErrorBoundary>
+      </HydrateClient>
+    </WorkflowsContainer>
+  );
+};
 
-        <WorkflowsContainer>
-
-            <HydrateClient>
-                <ErrorBoundary fallback={<p>Error!</p>}>
-                    <Suspense fallback={<p>Loading...</p>}>
-                        <WorkflowsList />
-                    </Suspense>
-                </ErrorBoundary>
-            </HydrateClient>
-        </WorkflowsContainer>
-    )
-}
-
-export default Page
+export default Page;
