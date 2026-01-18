@@ -23,7 +23,7 @@ export const WorkflowNode = ({
   return (
     <>
       {showToolbar && (
-        <NodeToolbar>
+        <NodeToolbar position={Position.Top}>
           <Button size={"sm"} variant={"ghost"} onClick={onSettings}>
             <SettingsIcon className="size-4" />
           </Button>

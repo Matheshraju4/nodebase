@@ -161,8 +161,8 @@ export type NodeScalarFieldEnum = (typeof NodeScalarFieldEnum)[keyof typeof Node
 
 export const ConnectionScalarFieldEnum = {
   id: 'id',
-  workdlowId: 'workdlowId',
-  formNodeId: 'formNodeId',
+  workflowId: 'workflowId',
+  fromNodeId: 'fromNodeId',
   toNodeId: 'toNodeId',
   fromOutput: 'fromOutput',
   toInput: 'toInput',
