@@ -26,7 +26,7 @@ export type AggregateNode = {
 
 export type NodeMinAggregateOutputType = {
   id: string | null
-  workdlowId: string | null
+  workflowId: string | null
   name: string | null
   type: $Enums.NodeType | null
   createdAt: Date | null
@@ -35,7 +35,7 @@ export type NodeMinAggregateOutputType = {
 
 export type NodeMaxAggregateOutputType = {
   id: string | null
-  workdlowId: string | null
+  workflowId: string | null
   name: string | null
   type: $Enums.NodeType | null
   createdAt: Date | null
@@ -44,7 +44,7 @@ export type NodeMaxAggregateOutputType = {
 
 export type NodeCountAggregateOutputType = {
   id: number
-  workdlowId: number
+  workflowId: number
   name: number
   type: number
   position: number
@@ -57,7 +57,7 @@ export type NodeCountAggregateOutputType = {
 
 export type NodeMinAggregateInputType = {
   id?: true
-  workdlowId?: true
+  workflowId?: true
   name?: true
   type?: true
   createdAt?: true
@@ -66,7 +66,7 @@ export type NodeMinAggregateInputType = {
 
 export type NodeMaxAggregateInputType = {
   id?: true
-  workdlowId?: true
+  workflowId?: true
   name?: true
   type?: true
   createdAt?: true
@@ -75,7 +75,7 @@ export type NodeMaxAggregateInputType = {
 
 export type NodeCountAggregateInputType = {
   id?: true
-  workdlowId?: true
+  workflowId?: true
   name?: true
   type?: true
   position?: true
@@ -159,7 +159,7 @@ export type NodeGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type NodeGroupByOutputType = {
   id: string
-  workdlowId: string
+  workflowId: string
   name: string
   type: $Enums.NodeType
   position: runtime.JsonValue
@@ -191,7 +191,7 @@ export type NodeWhereInput = {
   OR?: Prisma.NodeWhereInput[]
   NOT?: Prisma.NodeWhereInput | Prisma.NodeWhereInput[]
   id?: Prisma.StringFilter<"Node"> | string
-  workdlowId?: Prisma.StringFilter<"Node"> | string
+  workflowId?: Prisma.StringFilter<"Node"> | string
   name?: Prisma.StringFilter<"Node"> | string
   type?: Prisma.EnumNodeTypeFilter<"Node"> | $Enums.NodeType
   position?: Prisma.JsonFilter<"Node">
@@ -205,7 +205,7 @@ export type NodeWhereInput = {
 
 export type NodeOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   type?: Prisma.SortOrder
   position?: Prisma.SortOrder
@@ -222,7 +222,7 @@ export type NodeWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.NodeWhereInput | Prisma.NodeWhereInput[]
   OR?: Prisma.NodeWhereInput[]
   NOT?: Prisma.NodeWhereInput | Prisma.NodeWhereInput[]
-  workdlowId?: Prisma.StringFilter<"Node"> | string
+  workflowId?: Prisma.StringFilter<"Node"> | string
   name?: Prisma.StringFilter<"Node"> | string
   type?: Prisma.EnumNodeTypeFilter<"Node"> | $Enums.NodeType
   position?: Prisma.JsonFilter<"Node">
@@ -236,7 +236,7 @@ export type NodeWhereUniqueInput = Prisma.AtLeast<{
 
 export type NodeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   type?: Prisma.SortOrder
   position?: Prisma.SortOrder
@@ -253,7 +253,7 @@ export type NodeScalarWhereWithAggregatesInput = {
   OR?: Prisma.NodeScalarWhereWithAggregatesInput[]
   NOT?: Prisma.NodeScalarWhereWithAggregatesInput | Prisma.NodeScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Node"> | string
-  workdlowId?: Prisma.StringWithAggregatesFilter<"Node"> | string
+  workflowId?: Prisma.StringWithAggregatesFilter<"Node"> | string
   name?: Prisma.StringWithAggregatesFilter<"Node"> | string
   type?: Prisma.EnumNodeTypeWithAggregatesFilter<"Node"> | $Enums.NodeType
   position?: Prisma.JsonWithAggregatesFilter<"Node">
@@ -277,7 +277,7 @@ export type NodeCreateInput = {
 
 export type NodeUncheckedCreateInput = {
   id?: string
-  workdlowId: string
+  workflowId: string
   name: string
   type: $Enums.NodeType
   position: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -303,7 +303,7 @@ export type NodeUpdateInput = {
 
 export type NodeUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumNodeTypeFieldUpdateOperationsInput | $Enums.NodeType
   position?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -316,7 +316,7 @@ export type NodeUncheckedUpdateInput = {
 
 export type NodeCreateManyInput = {
   id?: string
-  workdlowId: string
+  workflowId: string
   name: string
   type: $Enums.NodeType
   position: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -337,7 +337,7 @@ export type NodeUpdateManyMutationInput = {
 
 export type NodeUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumNodeTypeFieldUpdateOperationsInput | $Enums.NodeType
   position?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -358,7 +358,7 @@ export type NodeOrderByRelationAggregateInput = {
 
 export type NodeCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   type?: Prisma.SortOrder
   position?: Prisma.SortOrder
@@ -369,7 +369,7 @@ export type NodeCountOrderByAggregateInput = {
 
 export type NodeMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   type?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -378,7 +378,7 @@ export type NodeMaxOrderByAggregateInput = {
 
 export type NodeMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   type?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -519,7 +519,7 @@ export type NodeScalarWhereInput = {
   OR?: Prisma.NodeScalarWhereInput[]
   NOT?: Prisma.NodeScalarWhereInput | Prisma.NodeScalarWhereInput[]
   id?: Prisma.StringFilter<"Node"> | string
-  workdlowId?: Prisma.StringFilter<"Node"> | string
+  workflowId?: Prisma.StringFilter<"Node"> | string
   name?: Prisma.StringFilter<"Node"> | string
   type?: Prisma.EnumNodeTypeFilter<"Node"> | $Enums.NodeType
   position?: Prisma.JsonFilter<"Node">
@@ -542,7 +542,7 @@ export type NodeCreateWithoutOutputConnectionInput = {
 
 export type NodeUncheckedCreateWithoutOutputConnectionInput = {
   id?: string
-  workdlowId: string
+  workflowId: string
   name: string
   type: $Enums.NodeType
   position: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -571,7 +571,7 @@ export type NodeCreateWithoutInputConnectionInput = {
 
 export type NodeUncheckedCreateWithoutInputConnectionInput = {
   id?: string
-  workdlowId: string
+  workflowId: string
   name: string
   type: $Enums.NodeType
   position: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -611,7 +611,7 @@ export type NodeUpdateWithoutOutputConnectionInput = {
 
 export type NodeUncheckedUpdateWithoutOutputConnectionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumNodeTypeFieldUpdateOperationsInput | $Enums.NodeType
   position?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -646,7 +646,7 @@ export type NodeUpdateWithoutInputConnectionInput = {
 
 export type NodeUncheckedUpdateWithoutInputConnectionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumNodeTypeFieldUpdateOperationsInput | $Enums.NodeType
   position?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -742,7 +742,7 @@ export type NodeCountOutputTypeCountInputConnectionArgs<ExtArgs extends runtime.
 
 export type NodeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workdlowId?: boolean
+  workflowId?: boolean
   name?: boolean
   type?: boolean
   position?: boolean
@@ -757,7 +757,7 @@ export type NodeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 
 export type NodeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workdlowId?: boolean
+  workflowId?: boolean
   name?: boolean
   type?: boolean
   position?: boolean
@@ -769,7 +769,7 @@ export type NodeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 
 export type NodeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workdlowId?: boolean
+  workflowId?: boolean
   name?: boolean
   type?: boolean
   position?: boolean
@@ -781,7 +781,7 @@ export type NodeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 
 export type NodeSelectScalar = {
   id?: boolean
-  workdlowId?: boolean
+  workflowId?: boolean
   name?: boolean
   type?: boolean
   position?: boolean
@@ -790,7 +790,7 @@ export type NodeSelectScalar = {
   updatedAt?: boolean
 }
 
-export type NodeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workdlowId" | "name" | "type" | "position" | "data" | "createdAt" | "updatedAt", ExtArgs["result"]["node"]>
+export type NodeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workflowId" | "name" | "type" | "position" | "data" | "createdAt" | "updatedAt", ExtArgs["result"]["node"]>
 export type NodeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workflow?: boolean | Prisma.WorkflowDefaultArgs<ExtArgs>
   outputConnection?: boolean | Prisma.Node$outputConnectionArgs<ExtArgs>
@@ -813,7 +813,7 @@ export type $NodePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    workdlowId: string
+    workflowId: string
     name: string
     type: $Enums.NodeType
     position: runtime.JsonValue
@@ -1247,7 +1247,7 @@ export interface Prisma__NodeClient<T, Null = never, ExtArgs extends runtime.Typ
  */
 export interface NodeFieldRefs {
   readonly id: Prisma.FieldRef<"Node", 'String'>
-  readonly workdlowId: Prisma.FieldRef<"Node", 'String'>
+  readonly workflowId: Prisma.FieldRef<"Node", 'String'>
   readonly name: Prisma.FieldRef<"Node", 'String'>
   readonly type: Prisma.FieldRef<"Node", 'NodeType'>
   readonly position: Prisma.FieldRef<"Node", 'Json'>

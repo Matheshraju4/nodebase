@@ -97,8 +97,8 @@ enum NodeType {
 
 model Node {
   id               String       @id @default(uuid())
-  workdlowId       String
-  workflow         Workflow     @relation(fields: [workdlowId], references: [id], onDelete: Cascade)
+  workflowId       String
+  workflow         Workflow     @relation(fields: [workflowId], references: [id], onDelete: Cascade)
 
   name             String
   type             NodeType
