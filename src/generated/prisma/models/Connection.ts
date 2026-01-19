@@ -26,8 +26,8 @@ export type AggregateConnection = {
 
 export type ConnectionMinAggregateOutputType = {
   id: string | null
-  workdlowId: string | null
-  formNodeId: string | null
+  workflowId: string | null
+  fromNodeId: string | null
   toNodeId: string | null
   fromOutput: string | null
   toInput: string | null
@@ -37,8 +37,8 @@ export type ConnectionMinAggregateOutputType = {
 
 export type ConnectionMaxAggregateOutputType = {
   id: string | null
-  workdlowId: string | null
-  formNodeId: string | null
+  workflowId: string | null
+  fromNodeId: string | null
   toNodeId: string | null
   fromOutput: string | null
   toInput: string | null
@@ -48,8 +48,8 @@ export type ConnectionMaxAggregateOutputType = {
 
 export type ConnectionCountAggregateOutputType = {
   id: number
-  workdlowId: number
-  formNodeId: number
+  workflowId: number
+  fromNodeId: number
   toNodeId: number
   fromOutput: number
   toInput: number
@@ -61,8 +61,8 @@ export type ConnectionCountAggregateOutputType = {
 
 export type ConnectionMinAggregateInputType = {
   id?: true
-  workdlowId?: true
-  formNodeId?: true
+  workflowId?: true
+  fromNodeId?: true
   toNodeId?: true
   fromOutput?: true
   toInput?: true
@@ -72,8 +72,8 @@ export type ConnectionMinAggregateInputType = {
 
 export type ConnectionMaxAggregateInputType = {
   id?: true
-  workdlowId?: true
-  formNodeId?: true
+  workflowId?: true
+  fromNodeId?: true
   toNodeId?: true
   fromOutput?: true
   toInput?: true
@@ -83,8 +83,8 @@ export type ConnectionMaxAggregateInputType = {
 
 export type ConnectionCountAggregateInputType = {
   id?: true
-  workdlowId?: true
-  formNodeId?: true
+  workflowId?: true
+  fromNodeId?: true
   toNodeId?: true
   fromOutput?: true
   toInput?: true
@@ -167,8 +167,8 @@ export type ConnectionGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 
 export type ConnectionGroupByOutputType = {
   id: string
-  workdlowId: string
-  formNodeId: string
+  workflowId: string
+  fromNodeId: string
   toNodeId: string
   fromOutput: string
   toInput: string
@@ -199,8 +199,8 @@ export type ConnectionWhereInput = {
   OR?: Prisma.ConnectionWhereInput[]
   NOT?: Prisma.ConnectionWhereInput | Prisma.ConnectionWhereInput[]
   id?: Prisma.StringFilter<"Connection"> | string
-  workdlowId?: Prisma.StringFilter<"Connection"> | string
-  formNodeId?: Prisma.StringFilter<"Connection"> | string
+  workflowId?: Prisma.StringFilter<"Connection"> | string
+  fromNodeId?: Prisma.StringFilter<"Connection"> | string
   toNodeId?: Prisma.StringFilter<"Connection"> | string
   fromOutput?: Prisma.StringFilter<"Connection"> | string
   toInput?: Prisma.StringFilter<"Connection"> | string
@@ -213,8 +213,8 @@ export type ConnectionWhereInput = {
 
 export type ConnectionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
-  formNodeId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
+  fromNodeId?: Prisma.SortOrder
   toNodeId?: Prisma.SortOrder
   fromOutput?: Prisma.SortOrder
   toInput?: Prisma.SortOrder
@@ -227,11 +227,12 @@ export type ConnectionOrderByWithRelationInput = {
 
 export type ConnectionWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  fromNodeId_toNodeId_fromOutput_toInput?: Prisma.ConnectionFromNodeIdToNodeIdFromOutputToInputCompoundUniqueInput
   AND?: Prisma.ConnectionWhereInput | Prisma.ConnectionWhereInput[]
   OR?: Prisma.ConnectionWhereInput[]
   NOT?: Prisma.ConnectionWhereInput | Prisma.ConnectionWhereInput[]
-  workdlowId?: Prisma.StringFilter<"Connection"> | string
-  formNodeId?: Prisma.StringFilter<"Connection"> | string
+  workflowId?: Prisma.StringFilter<"Connection"> | string
+  fromNodeId?: Prisma.StringFilter<"Connection"> | string
   toNodeId?: Prisma.StringFilter<"Connection"> | string
   fromOutput?: Prisma.StringFilter<"Connection"> | string
   toInput?: Prisma.StringFilter<"Connection"> | string
@@ -240,12 +241,12 @@ export type ConnectionWhereUniqueInput = Prisma.AtLeast<{
   workflow?: Prisma.XOR<Prisma.WorkflowScalarRelationFilter, Prisma.WorkflowWhereInput>
   fromNode?: Prisma.XOR<Prisma.NodeScalarRelationFilter, Prisma.NodeWhereInput>
   toNode?: Prisma.XOR<Prisma.NodeScalarRelationFilter, Prisma.NodeWhereInput>
-}, "id">
+}, "id" | "fromNodeId_toNodeId_fromOutput_toInput">
 
 export type ConnectionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
-  formNodeId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
+  fromNodeId?: Prisma.SortOrder
   toNodeId?: Prisma.SortOrder
   fromOutput?: Prisma.SortOrder
   toInput?: Prisma.SortOrder
@@ -261,8 +262,8 @@ export type ConnectionScalarWhereWithAggregatesInput = {
   OR?: Prisma.ConnectionScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ConnectionScalarWhereWithAggregatesInput | Prisma.ConnectionScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Connection"> | string
-  workdlowId?: Prisma.StringWithAggregatesFilter<"Connection"> | string
-  formNodeId?: Prisma.StringWithAggregatesFilter<"Connection"> | string
+  workflowId?: Prisma.StringWithAggregatesFilter<"Connection"> | string
+  fromNodeId?: Prisma.StringWithAggregatesFilter<"Connection"> | string
   toNodeId?: Prisma.StringWithAggregatesFilter<"Connection"> | string
   fromOutput?: Prisma.StringWithAggregatesFilter<"Connection"> | string
   toInput?: Prisma.StringWithAggregatesFilter<"Connection"> | string
@@ -283,8 +284,8 @@ export type ConnectionCreateInput = {
 
 export type ConnectionUncheckedCreateInput = {
   id?: string
-  workdlowId: string
-  formNodeId: string
+  workflowId: string
+  fromNodeId: string
   toNodeId: string
   fromOutput?: string
   toInput?: string
@@ -305,8 +306,8 @@ export type ConnectionUpdateInput = {
 
 export type ConnectionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
-  formNodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
+  fromNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   toNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
@@ -316,8 +317,8 @@ export type ConnectionUncheckedUpdateInput = {
 
 export type ConnectionCreateManyInput = {
   id?: string
-  workdlowId: string
-  formNodeId: string
+  workflowId: string
+  fromNodeId: string
   toNodeId: string
   fromOutput?: string
   toInput?: string
@@ -335,8 +336,8 @@ export type ConnectionUpdateManyMutationInput = {
 
 export type ConnectionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
-  formNodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
+  fromNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   toNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
@@ -354,10 +355,17 @@ export type ConnectionOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type ConnectionFromNodeIdToNodeIdFromOutputToInputCompoundUniqueInput = {
+  fromNodeId: string
+  toNodeId: string
+  fromOutput: string
+  toInput: string
+}
+
 export type ConnectionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
-  formNodeId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
+  fromNodeId?: Prisma.SortOrder
   toNodeId?: Prisma.SortOrder
   fromOutput?: Prisma.SortOrder
   toInput?: Prisma.SortOrder
@@ -367,8 +375,8 @@ export type ConnectionCountOrderByAggregateInput = {
 
 export type ConnectionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
-  formNodeId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
+  fromNodeId?: Prisma.SortOrder
   toNodeId?: Prisma.SortOrder
   fromOutput?: Prisma.SortOrder
   toInput?: Prisma.SortOrder
@@ -378,8 +386,8 @@ export type ConnectionMaxOrderByAggregateInput = {
 
 export type ConnectionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  workdlowId?: Prisma.SortOrder
-  formNodeId?: Prisma.SortOrder
+  workflowId?: Prisma.SortOrder
+  fromNodeId?: Prisma.SortOrder
   toNodeId?: Prisma.SortOrder
   fromOutput?: Prisma.SortOrder
   toInput?: Prisma.SortOrder
@@ -525,7 +533,7 @@ export type ConnectionCreateWithoutWorkflowInput = {
 
 export type ConnectionUncheckedCreateWithoutWorkflowInput = {
   id?: string
-  formNodeId: string
+  fromNodeId: string
   toNodeId: string
   fromOutput?: string
   toInput?: string
@@ -564,8 +572,8 @@ export type ConnectionScalarWhereInput = {
   OR?: Prisma.ConnectionScalarWhereInput[]
   NOT?: Prisma.ConnectionScalarWhereInput | Prisma.ConnectionScalarWhereInput[]
   id?: Prisma.StringFilter<"Connection"> | string
-  workdlowId?: Prisma.StringFilter<"Connection"> | string
-  formNodeId?: Prisma.StringFilter<"Connection"> | string
+  workflowId?: Prisma.StringFilter<"Connection"> | string
+  fromNodeId?: Prisma.StringFilter<"Connection"> | string
   toNodeId?: Prisma.StringFilter<"Connection"> | string
   fromOutput?: Prisma.StringFilter<"Connection"> | string
   toInput?: Prisma.StringFilter<"Connection"> | string
@@ -585,7 +593,7 @@ export type ConnectionCreateWithoutFromNodeInput = {
 
 export type ConnectionUncheckedCreateWithoutFromNodeInput = {
   id?: string
-  workdlowId: string
+  workflowId: string
   toNodeId: string
   fromOutput?: string
   toInput?: string
@@ -615,8 +623,8 @@ export type ConnectionCreateWithoutToNodeInput = {
 
 export type ConnectionUncheckedCreateWithoutToNodeInput = {
   id?: string
-  workdlowId: string
-  formNodeId: string
+  workflowId: string
+  fromNodeId: string
   fromOutput?: string
   toInput?: string
   createdAt?: Date | string
@@ -667,7 +675,7 @@ export type ConnectionUpdateManyWithWhereWithoutToNodeInput = {
 
 export type ConnectionCreateManyWorkflowInput = {
   id?: string
-  formNodeId: string
+  fromNodeId: string
   toNodeId: string
   fromOutput?: string
   toInput?: string
@@ -687,7 +695,7 @@ export type ConnectionUpdateWithoutWorkflowInput = {
 
 export type ConnectionUncheckedUpdateWithoutWorkflowInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  formNodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  fromNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   toNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
@@ -697,7 +705,7 @@ export type ConnectionUncheckedUpdateWithoutWorkflowInput = {
 
 export type ConnectionUncheckedUpdateManyWithoutWorkflowInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  formNodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  fromNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   toNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
@@ -707,7 +715,7 @@ export type ConnectionUncheckedUpdateManyWithoutWorkflowInput = {
 
 export type ConnectionCreateManyFromNodeInput = {
   id?: string
-  workdlowId: string
+  workflowId: string
   toNodeId: string
   fromOutput?: string
   toInput?: string
@@ -717,8 +725,8 @@ export type ConnectionCreateManyFromNodeInput = {
 
 export type ConnectionCreateManyToNodeInput = {
   id?: string
-  workdlowId: string
-  formNodeId: string
+  workflowId: string
+  fromNodeId: string
   fromOutput?: string
   toInput?: string
   createdAt?: Date | string
@@ -737,7 +745,7 @@ export type ConnectionUpdateWithoutFromNodeInput = {
 
 export type ConnectionUncheckedUpdateWithoutFromNodeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
   toNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
@@ -747,7 +755,7 @@ export type ConnectionUncheckedUpdateWithoutFromNodeInput = {
 
 export type ConnectionUncheckedUpdateManyWithoutFromNodeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
   toNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
@@ -767,8 +775,8 @@ export type ConnectionUpdateWithoutToNodeInput = {
 
 export type ConnectionUncheckedUpdateWithoutToNodeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
-  formNodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
+  fromNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -777,8 +785,8 @@ export type ConnectionUncheckedUpdateWithoutToNodeInput = {
 
 export type ConnectionUncheckedUpdateManyWithoutToNodeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workdlowId?: Prisma.StringFieldUpdateOperationsInput | string
-  formNodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowId?: Prisma.StringFieldUpdateOperationsInput | string
+  fromNodeId?: Prisma.StringFieldUpdateOperationsInput | string
   fromOutput?: Prisma.StringFieldUpdateOperationsInput | string
   toInput?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -789,8 +797,8 @@ export type ConnectionUncheckedUpdateManyWithoutToNodeInput = {
 
 export type ConnectionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workdlowId?: boolean
-  formNodeId?: boolean
+  workflowId?: boolean
+  fromNodeId?: boolean
   toNodeId?: boolean
   fromOutput?: boolean
   toInput?: boolean
@@ -803,8 +811,8 @@ export type ConnectionSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type ConnectionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workdlowId?: boolean
-  formNodeId?: boolean
+  workflowId?: boolean
+  fromNodeId?: boolean
   toNodeId?: boolean
   fromOutput?: boolean
   toInput?: boolean
@@ -817,8 +825,8 @@ export type ConnectionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
 
 export type ConnectionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workdlowId?: boolean
-  formNodeId?: boolean
+  workflowId?: boolean
+  fromNodeId?: boolean
   toNodeId?: boolean
   fromOutput?: boolean
   toInput?: boolean
@@ -831,8 +839,8 @@ export type ConnectionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 
 export type ConnectionSelectScalar = {
   id?: boolean
-  workdlowId?: boolean
-  formNodeId?: boolean
+  workflowId?: boolean
+  fromNodeId?: boolean
   toNodeId?: boolean
   fromOutput?: boolean
   toInput?: boolean
@@ -840,7 +848,7 @@ export type ConnectionSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ConnectionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workdlowId" | "formNodeId" | "toNodeId" | "fromOutput" | "toInput" | "createdAt" | "updatedAt", ExtArgs["result"]["connection"]>
+export type ConnectionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workflowId" | "fromNodeId" | "toNodeId" | "fromOutput" | "toInput" | "createdAt" | "updatedAt", ExtArgs["result"]["connection"]>
 export type ConnectionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workflow?: boolean | Prisma.WorkflowDefaultArgs<ExtArgs>
   fromNode?: boolean | Prisma.NodeDefaultArgs<ExtArgs>
@@ -866,8 +874,8 @@ export type $ConnectionPayload<ExtArgs extends runtime.Types.Extensions.Internal
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    workdlowId: string
-    formNodeId: string
+    workflowId: string
+    fromNodeId: string
     toNodeId: string
     fromOutput: string
     toInput: string
@@ -1300,8 +1308,8 @@ export interface Prisma__ConnectionClient<T, Null = never, ExtArgs extends runti
  */
 export interface ConnectionFieldRefs {
   readonly id: Prisma.FieldRef<"Connection", 'String'>
-  readonly workdlowId: Prisma.FieldRef<"Connection", 'String'>
-  readonly formNodeId: Prisma.FieldRef<"Connection", 'String'>
+  readonly workflowId: Prisma.FieldRef<"Connection", 'String'>
+  readonly fromNodeId: Prisma.FieldRef<"Connection", 'String'>
   readonly toNodeId: Prisma.FieldRef<"Connection", 'String'>
   readonly fromOutput: Prisma.FieldRef<"Connection", 'String'>
   readonly toInput: Prisma.FieldRef<"Connection", 'String'>
