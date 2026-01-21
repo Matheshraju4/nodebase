@@ -1038,7 +1038,7 @@ export type WorkflowScalarFieldEnum = (typeof WorkflowScalarFieldEnum)[keyof typ
 
 export const NodeScalarFieldEnum = {
   id: 'id',
-  workdlowId: 'workdlowId',
+  workflowId: 'workflowId',
   name: 'name',
   type: 'type',
   position: 'position',
