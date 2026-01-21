@@ -1,6 +1,6 @@
 import toposort from "toposort";
 import { Connection, Node } from "@/generated/prisma/client";
-//TODO Learn this Function
+
 export const topologicalSort = (
   nodes: Node[],
   connections: Connection[],
