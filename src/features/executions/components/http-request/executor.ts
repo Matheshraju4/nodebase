@@ -14,9 +14,9 @@ Handlebars.registerHelper("json", (context) => {
 
 
 type HttpRequestData = {
-  variableName: string;
-  endpoint: string;
-  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+  variableName?: string;
+  endpoint?: string;
+  method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   body?: string;
 };
 export const HttpRequestExecutor: NodeExecutor<HttpRequestData> = async ({
@@ -28,22 +28,26 @@ export const HttpRequestExecutor: NodeExecutor<HttpRequestData> = async ({
 }) => {
   await publish(httpRequestChannel().status({ nodeId, status: "loading" }));
 
-  if (!data.endpoint) {
-    await publish(httpRequestChannel().status({ nodeId, status: "error" }));
-    throw new NonRetriableError("Http Request node: No endpoint configured");
-  }
-
-  if (!data.variableName) {
-    await publish(httpRequestChannel().status({ nodeId, status: "error" }));
-    throw new NonRetriableError("Http Request node: Variable not configured");
-  }
-  if (!data.method) {
-    await publish(httpRequestChannel().status({ nodeId, status: "error" }));
-    throw new NonRetriableError("Http Request node: Method not Configured");
-  }
-
+  
   try {
     const result = await step.run("http-request", async () => {
+      if (!data.endpoint) {
+        await publish(httpRequestChannel().status({ nodeId, status: "error" }));
+        throw new NonRetriableError(
+          "Http Request node: No endpoint configured",
+        );
+      }
+
+      if (!data.variableName) {
+        await publish(httpRequestChannel().status({ nodeId, status: "error" }));
+        throw new NonRetriableError(
+          "Http Request node: Variable not configured",
+        );
+      }
+      if (!data.method) {
+        await publish(httpRequestChannel().status({ nodeId, status: "error" }));
+        throw new NonRetriableError("Http Request node: Method not Configured");
+      }
       const endpoint = Handlebars.compile(data.endpoint)(context);
       console.log("ENDPOINT", endpoint);
       const method = data.method;
