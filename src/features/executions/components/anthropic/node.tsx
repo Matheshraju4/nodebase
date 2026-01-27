@@ -17,6 +17,7 @@ type AnthropicAiNodeData = {
   model?: string;
   systemPrompt?: string;
   userPrompt?: string;
+  credentialId?: string;
   // [key: string]: unknown;
 };
 type AnthropicAiNodeType = Node<AnthropicAiNodeData>;
