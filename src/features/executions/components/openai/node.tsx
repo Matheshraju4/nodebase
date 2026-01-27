@@ -12,6 +12,7 @@ type OpenAiNodeData = {
   model?: string;
   systemPrompt?: string;
   userPrompt?: string;
+  credentialId?: string;
   // [key: string]: unknown;
 };
 type OpenAiNodeType = Node<OpenAiNodeData>;
