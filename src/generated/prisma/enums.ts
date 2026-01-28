@@ -17,7 +17,9 @@ export const NodeType = {
   STRIPE_TRIGGER: 'STRIPE_TRIGGER',
   ANTHROPIC: 'ANTHROPIC',
   GEMINI: 'GEMINI',
-  OPENAI: 'OPENAI'
+  OPENAI: 'OPENAI',
+  DISCORD: 'DISCORD',
+  SLACK: 'SLACK'
 } as const
 
 export type NodeType = (typeof NodeType)[keyof typeof NodeType]
@@ -30,3 +32,12 @@ export const CredentialType = {
 } as const
 
 export type CredentialType = (typeof CredentialType)[keyof typeof CredentialType]
+
+
+export const ExecutionStatus = {
+  RUNNING: 'RUNNING',
+  SUCCESS: 'SUCCESS',
+  FAILED: 'FAILED'
+} as const
+
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus]
