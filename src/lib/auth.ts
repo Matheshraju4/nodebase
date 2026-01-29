@@ -32,7 +32,7 @@ export const auth = betterAuth({
         checkout({
           products: [
             {
-              productId: "6fa29345-6eaa-457b-99c9-5cfc7f70d001",
+              productId: "c7579cdd-fd6f-4df4-ad17-b56f352bbbdc",
               slug: "Nodebase-Pro", // Custom slug for easy reference in Checkout URL, e.g. /checkout/Nodebase-Pro
             },
           ],
